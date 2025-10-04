@@ -1,0 +1,23 @@
+<div class="max-w-md mx-auto bg-white p-6 rounded shadow">
+  <h2 class="text-xl font-semibold mb-4">Login</h2>
+  <form (ngSubmit)="submit()" class="space-y-3">
+    <input
+      [(ngModel)]="username"
+      name="username"
+      placeholder="Username"
+      class="w-full p-2 border rounded"
+    />
+    <input
+      [(ngModel)]="password"
+      name="password"
+      type="password"
+      placeholder="Password"
+      class="w-full p-2 border rounded"
+    />
+    <div class="flex justify-between items-center">
+      <button type="submit" class="px-4 py-2 bg-gray-900 text-white rounded">Login</button>
+      <a routerLink="/register" class="text-sm text-gray-600">Create account</a>
+    </div>
+    <div *ngIf="error" class="text-red-600">{{ error }}</div>
+  </form>
+</div>

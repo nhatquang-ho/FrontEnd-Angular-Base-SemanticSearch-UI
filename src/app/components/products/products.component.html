@@ -1,0 +1,18 @@
+<div class="space-y-4">
+  <div class="flex gap-3 items-center">
+    <input [(ngModel)]="query" placeholder="Search products..." class="flex-1 p-2 border rounded" />
+    <button (click)="search()" class="px-3 py-2 bg-gray-900 text-white rounded">Search</button>
+    <button (click)="semantic()" class="px-3 py-2 border rounded">Semantic</button>
+  </div>
+  <div *ngIf="loading" class="text-gray-500">Loading...</div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div *ngFor="let p of products" class="bg-white p-4 rounded shadow">
+      <h3 class="font-semibold">{{ p.name }}</h3>
+      <p class="text-sm text-gray-600">{{ p.description }}</p>
+      <div class="mt-2 flex justify-between items-center">
+        <div class="text-lg font-bold">{{ p.price }} €</div>
+        <button (click)="view(p.id)" class="px-3 py-1 border rounded">View</button>
+      </div>
+    </div>
+  </div>
+</div>

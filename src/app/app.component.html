@@ -1,0 +1,27 @@
+<header class="bg-white shadow-sm">
+  <div class="container p-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="text-2xl font-bold">Brandwebkit</div>
+      <nav class="hidden md:flex gap-4 ml-6">
+        <a routerLink="/" class="hover:underline">Products</a>
+        <a routerLink="/users" *ngIf="auth.isAdmin()" class="hover:underline">Users</a>
+        <a routerLink="/admin" *ngIf="auth.isAdmin()" class="hover:underline">Admin</a>
+        <a routerLink="/me" *ngIf="auth.isAuthenticated()" class="hover:underline">My dashboard</a>
+      </nav>
+    </div>
+    <div class="flex items-center gap-4">
+      <a routerLink="/profile" *ngIf="auth.isAuthenticated()" class="hidden sm:inline-block"
+        >Profile</a
+      >
+      <a routerLink="/login" *ngIf="!auth.isAuthenticated()" class="btn">Login</a>
+      <button (click)="logout()" *ngIf="auth.isAuthenticated()" class="btn-secondary">
+        Logout
+      </button>
+      <button class="md:hidden" (click)="$event.preventDefault(); mobileMenuAlert()">☰</button>
+    </div>
+  </div>
+</header>
+<main class="container p-4">
+  <router-outlet></router-outlet>
+</main>
+<footer class="text-center p-6 text-sm text-gray-500">© Brandwebkit</footer>

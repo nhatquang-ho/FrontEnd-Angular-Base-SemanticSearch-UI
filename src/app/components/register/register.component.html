@@ -1,0 +1,35 @@
+<div class="max-w-md mx-auto bg-white p-6 rounded shadow">
+  <h2 class="text-xl font-semibold mb-4">Create account</h2>
+  <form (ngSubmit)="submit()" class="grid gap-3">
+    <input
+      [(ngModel)]="username"
+      name="username"
+      placeholder="Username"
+      class="p-2 border rounded"
+    />
+    <input [(ngModel)]="email" name="email" placeholder="Email" class="p-2 border rounded" />
+    <input
+      [(ngModel)]="password"
+      name="password"
+      type="password"
+      placeholder="Password"
+      class="p-2 border rounded"
+    />
+    <div class="grid grid-cols-2 gap-2">
+      <input
+        [(ngModel)]="firstName"
+        name="firstName"
+        placeholder="First name"
+        class="p-2 border rounded"
+      />
+      <input
+        [(ngModel)]="lastName"
+        name="lastName"
+        placeholder="Last name"
+        class="p-2 border rounded"
+      />
+    </div>
+    <button class="px-4 py-2 bg-gray-900 text-white rounded">Register</button>
+    <div *ngIf="error" class="text-red-600">{{ error }}</div>
+  </form>
+</div>
